@@ -2,9 +2,9 @@ from django.shortcuts import render
 
 from rest_framework import generics
 
-from .models import Photo, Collection
+from .models import Photo, Collection, Test
 
-from .serializers import PhotoSerializer, CollectionSerializers
+from .serializers import PhotoSerializer, CollectionSerializers, TestSerializers
 
 class PhotoList(generics.ListCreateAPIView):
     serializer_class = PhotoSerializer
@@ -28,6 +28,9 @@ class CollectionList(generics.ListCreateAPIView):
     queryset = Collection.objects.all()
 
 
+class TestList(generics.ListCreateAPIView):
+    serializer_class = TestSerializers
+    queryset = Test.objects.all()
 
 class CollectionDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CollectionSerializers

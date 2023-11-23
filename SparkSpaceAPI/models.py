@@ -7,7 +7,10 @@ class Collection(models.Model):
     def __str__(self):
         return self.collectionName
 
-
+class Test(models.Model):
+    title = models.CharField(max_length=100)
+    def __str__(self):
+        return self.title
 
 class Photo(models.Model):
     photoTitle = models.CharField(max_length=100)
