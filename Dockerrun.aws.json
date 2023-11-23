@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "<your-docker-hub-username>/nice-reads:latest",
+      "Name": "ken7727/nice-reads:latest",
       "Update": "true"
     },
     "Ports": [
