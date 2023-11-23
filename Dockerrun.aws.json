@@ -1,0 +1,13 @@
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "<your-docker-hub-username>/nice-reads:latest",
+      "Update": "true"
+    },
+    "Ports": [
+      {
+        "ContainerPort": "8000"
+      }
+    ]
+  }
+  

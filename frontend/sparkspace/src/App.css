@@ -1,0 +1,17 @@
+/* App.css */
+.my-masonry-grid {
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your pins */
+.pin img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional: for rounded corners */
+}
