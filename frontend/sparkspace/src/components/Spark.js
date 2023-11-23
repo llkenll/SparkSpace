@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Pin = ({ imageUrl, title }) => {
+const Spark = ({key, imageUrl, title,description}) => {
   return (
-    <div className="pin">
+    <div className="spark">
       <img src={imageUrl} alt={title} />
       {title && <p>{title}</p>}
     </div>
   );
 };
 
-export default Pin;
+export default Spark;

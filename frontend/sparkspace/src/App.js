@@ -1,18 +1,10 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Masonry from 'react-masonry-css';
-import Pin from './components/Pin'
-import React from 'react';
-const App = () => {
-  const pins = [
-    // Array of objects with image data
-    { id: 1, imageUrl: 'images/nebula.jpg', title: 'Image 1' },
-    { id: 2, imageUrl: 'images/nebula.jpg', title: 'Image 2' },
-    { id: 3, imageUrl: 'images/nebula2.jpg', title: 'Image 3' },
-    { id: 4, imageUrl: 'images/nebula.jpg', title: 'Image 4' },
-    { id: 5, imageUrl: 'images/nebula2.jpg', title: 'Image 5' },
+import Spark from './components/Spark';
 
-    // Add more pins as needed
-  ];
+const App = () => {
+  const [sparks, setSparks] = useState([]);
 
   // Breakpoint columns configuration for responsiveness
   const breakpointColumnsObj = {
@@ -22,12 +14,38 @@ const App = () => {
     500: 1
   };
 
+  let url = "http://sparkspace-dev.us-west-2.elasticbeanstalk.com/sparkapi/photos/"
+
+  useEffect(() => {
+    const fetchSparks = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setSparks(data); 
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchSparks();
+  }, []);
+
   return (
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className="my-masonry-grid"
       columnClassName="my-masonry-grid_column">
-      {pins.map(pin => <Pin key={pin.id} imageUrl={pin.imageUrl} title={pin.title} />)}
+      {sparks.map(spark => (
+        <Spark 
+          key={spark.id} 
+          imageUrl={spark.image} 
+          title={spark.photoTitle} 
+          description={spark.photoDescription}
+        />
+      ))}
     </Masonry>
   );
 };
