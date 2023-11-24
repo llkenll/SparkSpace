@@ -1,53 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Masonry from 'react-masonry-css';
-import Spark from './components/Spark';
-
+import HomePage from './components/Pages/HomePage';
+import NavBar from './components/DashBoard/NavBar';
+import CreatePage from './components/Pages/Create/CreatePage';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import SparkHomePage from './components/Pages/SparkHomePage';
 const App = () => {
-  const [sparks, setSparks] = useState([]);
 
-  // Breakpoint columns configuration for responsiveness
-  const breakpointColumnsObj = {
-    default: 4,
-    1100: 3,
-    700: 2,
-    500: 1
-  };
-
-  let url = "http://sparkspace-dev.us-west-2.elasticbeanstalk.com/sparkapi/photos/"
-
-  useEffect(() => {
-    const fetchSparks = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        setSparks(data); 
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      }
-    };
-
-    fetchSparks();
-  }, []);
+  const [activeNav, setActiveNav] = useState('Home');
 
   return (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className="my-masonry-grid"
-      columnClassName="my-masonry-grid_column">
-      {sparks.map(spark => (
-        <Spark 
-          key={spark.id} 
-          imageUrl={spark.image} 
-          title={spark.photoTitle} 
-          description={spark.photoDescription}
-        />
-      ))}
-    </Masonry>
+    <Router>
+      <div className="app-container">
+      <NavBar activeNav={activeNav} onNavChange={setActiveNav} />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<SparkHomePage/>} />
+            <Route path="/spark-creation-tool" element={<CreatePage setActiveNav ={setActiveNav}/>} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 };
 
 export default App;
+

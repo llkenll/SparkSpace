@@ -1,17 +1,11 @@
-/* App.css */
-.my-masonry-grid {
-  display: flex;
-  margin-left: -30px; /* gutter size offset */
-  width: auto;
-}
-.my-masonry-grid_column {
-  padding-left: 30px; /* gutter size */
-  background-clip: padding-box;
+.app-container {
+  display: grid;
+  grid-template-rows: auto 1fr; 
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
 }
 
-
-.spark img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px; /* Optional: for rounded corners */
+/* Style for the main content area, if necessary */
+.main-content {
+  overflow-y: auto;
 }
