@@ -4,7 +4,7 @@ import Masonry from 'react-masonry-css';
 import Spark from '../Spark';
 
 
-export default function SparkHomePage() {
+export default function SparkHomePage({setActiveNav}) {
   const [sparks, setSparks] = useState([]);
   const breakpointColumnsObj = {
     default: 4,
@@ -39,7 +39,8 @@ export default function SparkHomePage() {
       columnClassName="spark-masonry-grid_column">
       {sparks.map(spark => (
         <Spark 
-          key={spark.id} 
+        setActiveNav ={setActiveNav}
+          sparkId={spark.id} 
           imageUrl={spark.image} 
           title={spark.photoTitle} 
           description={spark.photoDescription}

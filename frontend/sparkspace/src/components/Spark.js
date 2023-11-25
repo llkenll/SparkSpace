@@ -1,10 +1,18 @@
 import React from 'react';
-
-const Spark = ({key, imageUrl, title,description}) => {
+import './components.css';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+const Spark = ({sparkId, imageUrl, title, description, setActiveNav}) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/spark/${sparkId}`);
+    setActiveNav("spark")
+  };
   return (
-    <div className="spark">
-      <img src={imageUrl} alt={title} />
-      {title && <p>{title}</p>}
+    <div className="spark" onClick={handleClick}>
+      <div className ="sparkImageContainer">
+        <img src={imageUrl} alt={title} className="spark-image" />
+      </div>
+      {title && <p className="spark-title">{title}</p>}
     </div>
   );
 };
