@@ -10,7 +10,36 @@
     background-clip: padding-box;
 
   }
-  
+  .detailCard{
+    width:1016px;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    flex-direction: row;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: flex;
+  }
+
+
+  visual-content-container{
+    box-sizing: border-box;
+    display: block;
+
+  }
+
+  description-content-container{
+    height: 100%;
+    max-height: calc((100vh - 80px) - 16px);
+    width: 508px;
+    box-sizing: border-box;
+    flex-direction: column;
+    display: flex;
+    cursor: auto;
+
+  }
   
   .spark img {
     width: 100%;

@@ -17,7 +17,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<SparkHomePage setActiveNav ={setActiveNav}/>} />
             <Route path="/spark-creation-tool" element={<CreatePage setActiveNav ={setActiveNav}/>} />
-            <Route path="/spark/:id" element={<SparkDetailPage/>} />
+            <Route path="/spark/:sparkId" element={<SparkDetailPage/>} />
           </Routes>
         </div>
       </div>
