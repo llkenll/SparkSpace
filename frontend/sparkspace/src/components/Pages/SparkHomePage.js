@@ -28,6 +28,8 @@ export default function SparkHomePage({setActiveNav}) {
       }
     };
 
+    console.log(url)
+
     fetchSparks();
   }, []);
 
