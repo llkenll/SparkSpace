@@ -1,0 +1,36 @@
+.album-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .album-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+    max-width: 800px; /* Maximum width of the card */
+  }
+  
+  .album-image-container {
+    flex-grow: 1;
+    max-width: 400px; /* Maximum width for the image section */
+  }
+  
+  .album-image {
+    border-radius: 8px;
+    width: 100%; /* Image will expand to fill the container */
+    max-height: 400px; /* Maximum height for the image */
+    object-fit: cover;
+  }
+  
+  .album-details {
+    width: 300px;
+   padding-left: 40px;
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  }
+  

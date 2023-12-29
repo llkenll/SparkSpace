@@ -20,3 +20,6 @@ class Photo(models.Model):
     image = models.ImageField(upload_to='photos/')
     def __str__(self):
         return self.photoTitle
+    def delete(self):
+        self.image.delete()
+        super().delete()

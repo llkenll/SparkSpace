@@ -6,6 +6,7 @@ from .models import Photo, Collection, Test
 
 from .serializers import PhotoSerializer, CollectionSerializers, TestSerializers
 
+
 class PhotoList(generics.ListCreateAPIView):
     serializer_class = PhotoSerializer
 
@@ -17,6 +18,7 @@ class PhotoList(generics.ListCreateAPIView):
             queryset = queryset.filter(collection = collectionName)
 
         return queryset
+
 
 class PhotoDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PhotoSerializer
