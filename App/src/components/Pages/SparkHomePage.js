@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './page.css';
 import Masonry from 'react-masonry-css';
 import Spark from '../Spark';
-
+import { loginUser } from '../../BackendFunctions/Login';
 
 export default function SparkHomePage({setActiveNav}) {
   const [sparks, setSparks] = useState([]);
@@ -28,8 +28,6 @@ export default function SparkHomePage({setActiveNav}) {
       }
     };
 
-    console.log(url)
-
     fetchSparks();
   }, []);
 
@@ -44,6 +42,7 @@ export default function SparkHomePage({setActiveNav}) {
           <Spark 
             setActiveNav={setActiveNav}
             sparkId={spark.id} 
+            key = {spark.id}
             imageUrl={spark.imageUrl} 
             title={spark.name} 
             description={spark.desc}

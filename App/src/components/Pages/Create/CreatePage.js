@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../page.css'; // Make sure the CSS is correctly imported
+import '../page.css'; 
 import { useNavigate } from 'react-router-dom';
 import { postImage } from '../../../BackendFunctions/uploadImage';
 export default function CreatePage({setActiveNav}) {
@@ -55,8 +55,7 @@ export default function CreatePage({setActiveNav}) {
         setPublishing(true);
         try {
             const base64String = await getBase64(imageFile);
-            console.log(base64String);
-            await postImage(base64String, photoTitle, photoDescription);
+            await postImage(base64String, imageFile, photoTitle, photoDescription);
         } catch (err) {
             console.log(err);
         }
